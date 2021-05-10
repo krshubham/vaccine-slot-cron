@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-node index.js
+/usr/local/bin/node /Users/kshubham/work/vaccine-checker/index.js

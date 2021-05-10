@@ -35,20 +35,20 @@ function main() {
                     console.log(`${session.available_capacity} doses available at ${session.center.name}, ${session.center.block_name} on ${session.date}`)
                 }
                 console.log(`Please check results.json for all details`);
+                notifier.notify({
+                    title: 'Vaccine Checker',
+                    message: 'Vaccine is available click here for more details',
+                    sound: 'Hero',
+                    timeout: 15
+                }, async (err, resp, metadata) => {
+                    if(resp === 'activate') {
+                        await open(`${path.join(os.homedir(), "results.json")}`, {wait: true});
+                    }
+                });
 
             } else {
                 console.log(`No matching sessions for age ${MIN_AGE} in ${DISTRICT_NAME} for the week of ${date}`);
             }
-            notifier.notify({
-                title: 'Vaccine Checker',
-                message: 'Vaccine is available click here for more details',
-                sound: 'Hero',
-                timeout: 15``
-            }, async (err, resp, metadata) => {
-                if(resp === 'activate') {
-                    await open(`${path.join(os.homedir(), "results.json")}`, {wait: true});
-                }
-            });
         })
         .catch(err => console.log(err));
 }
