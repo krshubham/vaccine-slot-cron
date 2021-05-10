@@ -1,0 +1,35 @@
+[
+  {
+    "session_id": "fdb895ee-4f7f-46b5-ae86-2e9265780e59",
+    "date": "11-05-2021",
+    "available_capacity": 1,
+    "min_age_limit": 18,
+    "vaccine": "COVISHIELD",
+    "slots": [
+      "09:00AM-11:00AM",
+      "11:00AM-01:00PM",
+      "01:00PM-03:00PM",
+      "03:00PM-06:00PM"
+    ],
+    "center": {
+      "center_id": 694806,
+      "name": "Max MedCenter 1 Mohali",
+      "address": "Plot No A19 Industrial Area Phase 6 SAS Nagar",
+      "state_name": "Punjab",
+      "district_name": "SAS Nagar",
+      "block_name": "Mohali",
+      "pincode": 160055,
+      "lat": 30,
+      "long": 76,
+      "from": "09:00:00",
+      "to": "18:00:00",
+      "fee_type": "Paid",
+      "vaccine_fees": [
+        {
+          "vaccine": "COVISHIELD",
+          "fee": "900"
+        }
+      ]
+    }
+  }
+]
