@@ -5,6 +5,7 @@ const notifier = require('node-notifier');
 const open = require('open');
 const os = require("os");
 const path = require("path");
+const Dose = require('./Dose');
 const {getCurrentDateInDDMMYYYY, filterByMinAge} = require('./Utils');
 
 const DISTRICT_NAME = "SAS Nagar";
@@ -26,7 +27,7 @@ function main() {
     const date = getCurrentDateInDDMMYYYY();
     console.log(`Checking vaccine availability for week starting from ${date}`);
     AvailabilityChecker.getAvailabilityForGivenDistrictAndWeek(districtId,date)
-        .then(centers => filterByMinAge(centers, MIN_AGE))
+        .then(centers => filterByMinAge(centers, MIN_AGE, Dose.FIRST))
         .then(sessions => {
             if(sessions.length > 0) {
                 console.log(`${sessions.length} sessions available for the week of ${date}`);
@@ -39,13 +40,12 @@ function main() {
                     title: 'Vaccine Checker',
                     message: 'Vaccine is available click here for more details',
                     sound: 'Hero',
-                    timeout: 15
+                    timeout: 15,
                 }, async (err, resp, metadata) => {
                     if(resp === 'activate') {
-                        await open(`${path.join(os.homedir(), "results.json")}`, {wait: true});
+                        await open(`${path.join(os.homedir(), "results.json")}`);
                     }
                 });
-
             } else {
                 console.log(`No matching sessions for age ${MIN_AGE} in ${DISTRICT_NAME} for the week of ${date}`);
             }

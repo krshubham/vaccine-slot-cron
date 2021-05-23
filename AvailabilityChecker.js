@@ -1,4 +1,4 @@
-const Axios = require('Axios');
+const Axios = require('axios');
 const {BASE_URL, CALENDAR_BY_DISTRICT} = require("./Routes");
 
 
