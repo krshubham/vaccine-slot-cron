@@ -8,7 +8,7 @@ const path = require("path");
 const Dose = require('./Dose');
 const {getCurrentDateInDDMMYYYY, filterByMinAge} = require('./Utils');
 
-const DISTRICT_NAME = "SAS Nagar";
+const DISTRICT_NAME = "Chandigarh";
 const MIN_AGE = 18;
 
 function main() {
